@@ -37,7 +37,7 @@ jobs:
 
 
       - name: Tagging the image
-        run: docker tag account-service ${{secrets.DOCKER_USERNAME}}/account-service:${{needs.build.outputs.id}
+        run: docker tag account-service ${{secrets.DOCKER_USERNAME}}/account-service:${{needs.build.outputs.id}}
 
       - name: Push Docker image
         run: docker push ${{secrets.DOCKER_USERNAME}}/account-service:${{needs.build.outputs.id}}
