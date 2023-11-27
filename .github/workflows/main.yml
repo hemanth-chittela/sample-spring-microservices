@@ -27,14 +27,14 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build Docker image
-        run:  cd ${{github.workspace}}/account-service; docker build -t account-service .
+        run:  cd ${{github.workspace}}/account-service; docker build -t cat .
 
       - name: Log in to Docker registry
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
 
       - name: Tagging the image
-        run: docker tag account-service ${{secrets.DOCKER_USERNAME}}/account-service:${{github.run_id}}
+        run: docker tag cat ${{secrets.DOCKER_USERNAME}}/account-service:${{github.run_id}}
 
       - name: Push Docker image
         run: docker push ${{secrets.DOCKER_USERNAME}}/account-service:${{github.run_id}}
