@@ -20,7 +20,7 @@ jobs:
           java-version: '11'
     
 
-      - name: Build with Maven
+      - name: Build with Mavens
         run: echo ${{github.workspace}}; cd ${{github.workspace}}/account-service ; mvn clean install
 
       - name: Set up Docker
