@@ -9,9 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    outputs:
-      id: ${{ steps.step1.outputs.id }}
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -37,8 +34,8 @@ jobs:
 
 
       - name: Tagging the image
-        run: docker tag account-service ${{secrets.DOCKER_USERNAME}}/account-service:${{needs.build.outputs.id}}
+        run: docker tag account-service ${{secrets.DOCKER_USERNAME}}/account-service:${{github.run_id}}
 
       - name: Push Docker image
-        run: docker push ${{secrets.DOCKER_USERNAME}}/account-service:${{needs.build.outputs.id}}
+        run: docker push ${{secrets.DOCKER_USERNAME}}/account-service:${{github.run_id}}
   
