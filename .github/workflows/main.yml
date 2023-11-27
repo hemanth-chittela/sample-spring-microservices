@@ -27,7 +27,7 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build Docker image
-        run:  cd ${{github.workspace}}/account-service; docker build -t accounts-service .
+        run:  cd ${{github.workspace}}/account-service; docker build -t account-service .
 
       - name: Log in to Docker registry
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
