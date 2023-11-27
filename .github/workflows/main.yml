@@ -34,8 +34,8 @@ jobs:
 
 
       - name: Tagging the image
-        run: docker tag cat ${{secrets.DOCKER_USERNAME}}/account-service:${{github.run_id}}
+        run: docker tag cat ${{secrets.DOCKER_USERNAME}}/cat:${{github.run_id}}
 
       - name: Push Docker image
-        run: docker push ${{secrets.DOCKER_USERNAME}}/account-service:${{github.run_id}}
+        run: docker push ${{secrets.DOCKER_USERNAME}}/cat:${{github.run_id}}
   
